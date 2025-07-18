@@ -37,7 +37,7 @@ const facilities = [
 
 export default function FacilitiesSection() {
     return (
-        <section className="w-full bg-white py-20">
+        <section className="w-full bg-gradient-to-br from-white via-[#FACC15]/30 to-[#E0E7FF]/50 py-20">
             <div className="max-w-6xl mx-auto px-4 text-center">
                 <p className="uppercase tracking-widest text-sm text-gray-500 mb-2">
                     Our Facilities
@@ -56,7 +56,7 @@ export default function FacilitiesSection() {
                         return (
                             <div
                                 key={index}
-                                className="bg-gray-50 border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 text-left"
+                                className="bg-gray-50 border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 text-left"
                             >
                                 <Icon className="w-8 h-8 text-yellow-500 mb-4" />
                                 <h4 className="text-lg font-semibold text-gray-800 mb-1">

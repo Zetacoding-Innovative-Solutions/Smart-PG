@@ -7,9 +7,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 const images = [
-    "/PG/images (8).jpg",
+    "/PG/images (1).jpg",
+    "/PG/images (2).jpg",
     "/PG/images (16).jpg",
-    "/PG/images (15).jpg",
 ]
 
 export default function HeroSection() {
@@ -73,7 +73,7 @@ export default function HeroSection() {
                 >
                     <Link
                         href="/about"
-                        className="inline-block bg-[#FACC15] hover:bg-[#eab308] text-black px-6 py-3 rounded-full text-sm font-semibold transition"
+                        className="inline-block bg-[#FACC15] hover:bg-[#eab308] text-black px-6 py-3 rounded-full text-base font-semibold transition"
                     >
                         Explore Now
                     </Link>
