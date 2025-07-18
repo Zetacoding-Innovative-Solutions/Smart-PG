@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export default function ContactHeroSection() {
     return (
-        <section className="w-full bg-gradient-to-br from-white via-[#FACC15]/20 to-[#E0E7FF]/30 py-20 pt-42">
+        <section className="w-full bg-gradient-to-br from-white via-[#FACC15]/20 to-[#E0E7FF]/30 py-20 pt-48">
             <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10">
 
                 {/* Left Content */}

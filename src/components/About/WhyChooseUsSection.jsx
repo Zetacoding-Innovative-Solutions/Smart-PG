@@ -9,7 +9,7 @@ const points = [
     {
         title: "Safety First",
         description: "24/7 security, CCTV surveillance, and controlled access to ensure peace of mind.",
-        position: 'row-start-1 col-start-1',
+        position: 'md:row-start-1 md:col-start-1',
         animationPosition: {
             x: -150,
             y: -150
@@ -18,7 +18,7 @@ const points = [
     {
         title: "Comfortable Living",
         description: "Spacious, furnished rooms designed for modern living with daily maintenance.",
-        position: 'row-start-1 col-start-2',
+        position: 'md:row-start-1 md:col-start-2',
         animationPosition: {
             x: 150,
             y: -150
@@ -27,7 +27,7 @@ const points = [
     {
         title: "All-Inclusive Facilities",
         description: "From high-speed WiFi to uninterrupted water and power supply — everything’s included.",
-        position: 'row-start-2 col-start-1',
+        position: 'md:row-start-2 md:col-start-1',
         animationPosition: {
             x: -150,
             y: 150
@@ -36,7 +36,7 @@ const points = [
     {
         title: "Community-Focused",
         description: "We don't just rent rooms, we build a vibrant, respectful living community.",
-        position: 'row-start-2 col-start-2',
+        position: 'md:row-start-2 md:col-start-2',
         animationPosition: {
             x: 150,
             y: 150
@@ -86,12 +86,11 @@ export default function WhyChooseUsSection() {
                         initial={{ x: 150, opacity: 0 }}
                         animate={inView ? { x: 0, opacity: 1 } : {}}
                         transition={{ duration: 0.8, delay: 0.8 }}
-                        className="md:row-span-2 md:col-start-3 col-span-1 w-full h-full relative"
+                        className="md:row-span-2 md:col-start-3 col-span-1 row-span-1 w-full h-full relative"
                     >
-                        <Image
+                        <img
                             src="/PG/images (4).jpg"
                             alt="Why Choose Us"
-                            fill
                             className="object-cover rounded-lg shadow-md"
                         />
                     </motion.div>

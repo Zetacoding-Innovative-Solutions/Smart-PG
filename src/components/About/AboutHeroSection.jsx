@@ -60,11 +60,11 @@ export default function AboutHeroSection() {
 
             {/* Optional background shape */}
             <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-0 right-0 z-3">
-                <circle cx="100" cy="100" r="90" fill="none" stroke="#FACC15" stroke-width="2" opacity="0.1" />
+                <circle cx="100" cy="100" r="90" fill="none" stroke="#FACC15" strokeWidth="2" opacity="0.1" />
 
-                <circle cx="100" cy="100" r="60" fill="none" stroke="#FACC15" stroke-width="2" opacity="0.2" />
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#FACC15" strokeWidth="2" opacity="0.2" />
 
-                <circle cx="100" cy="100" r="30" fill="none" stroke="#FACC15" stroke-width="2" opacity="0.3" />
+                <circle cx="100" cy="100" r="30" fill="none" stroke="#FACC15" strokeWidth="2" opacity="0.3" />
             </svg>
         </section>
     )
