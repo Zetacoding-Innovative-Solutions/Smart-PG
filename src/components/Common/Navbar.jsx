@@ -3,7 +3,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Instagram, Phone, Clock } from "lucide-react"
+import { Menu, X, Phone } from "lucide-react"
 import Link from "next/link"
 
 const navLinks = [
@@ -20,15 +20,19 @@ export default function Navbar() {
     return (
         <div className="absolute top-0 left-0 w-full z-50 backdrop-blur-xs">
             {/* Top Info Bar */}
-            <div className="md:w-[70%] w-[100%] mx-auto bg-transparent text-lg text-white px-4 py-4 flex justify-between items-center">
+            <div className="md:w-[70%] w-[100%] mx-auto bg-transparent text-lg text-black px-4 py-4 flex justify-between items-center">
                 <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    <span>Open Mon-Sat: 8AM - 8PM</span>
+                    <Phone className="w-4 h-4" />
+                    <a href="tel:+919123456789">+91 98765 43210</a>
                 </div>
                 <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1">
-                        <Phone className="w-4 h-4" />
-                        <span>+91 98765 43210</span>
+                    <div className="flex items-center gap-4">
+                        <a href={'https://www.facebook.com'} target="_blank">
+                            <i className="fa-brands fa-facebook text-2xl"></i>
+                        </a>
+                        <a href={'https://www.instagram.com'} target="_blank">
+                            <i className="fa-brands fa-instagram text-2xl"></i>
+                        </a>
                     </div>
                 </div>
             </div>

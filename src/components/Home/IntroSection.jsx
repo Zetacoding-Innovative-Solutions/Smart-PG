@@ -66,7 +66,7 @@ export default function IntroSection() {
                 >
                     <div className="relative w-full h-96 md:h-[500px] rounded-xl overflow-hidden shadow-lg z-6">
                         <Image
-                            src="/PG/images (8).jpg"
+                            src="/PG/images (2).jpg"
                             alt="PG Intro"
                             fill
                             className="object-cover"

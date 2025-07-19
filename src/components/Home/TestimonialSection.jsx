@@ -8,6 +8,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Quote } from "lucide-react"
+import { useInView } from "react-intersection-observer"
 import { motion } from "framer-motion"
 
 const testimonials = [
@@ -26,8 +27,12 @@ const testimonials = [
 ]
 
 export default function TestimonialSection() {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.3,
+    })
     return (
-        <section className="w-full bg-yellow-400 py-20 px-4">
+        <section ref={ref} className="w-full bg-yellow-400 py-20 px-4">
             <div className="max-w-4xl mx-auto text-center">
                 <p className="uppercase tracking-widest text-sm text-gray-800 mb-2">
                     Testimonials
@@ -36,34 +41,48 @@ export default function TestimonialSection() {
                     What Our Residents Say
                 </h2>
 
-                <Carousel
-                    opts={{ align: "center", loop: true }}
+
+                <motion.div
+                    initial={{ y: 350, opacity: 0 }}
+                    animate={inView ? { y: 0, opacity: 1 } : {}}
+                    transition={{ duration: 0.8 }}
                     className="w-full max-w-2xl mx-auto"
                 >
-                    <CarouselContent>
-                        {testimonials.map((t, i) => (
-                            <CarouselItem key={i}>
-                                <motion.div
-                                    whileHover={{
-                                        scale: 1.03,
-                                        backgroundColor: "#fef3c7", // contrast hover color
-                                    }}
-                                    transition={{ duration: 0.3 }}
-                                    className="bg-white rounded-xl shadow-md p-6 text-left max-w-xl mx-auto transition-all"
-                                >
-                                    <Quote className="text-yellow-500 w-8 h-8 mb-4" />
-                                    <p className="text-gray-700 text-base italic mb-4">"{t.content}"</p>
-                                    <h4 className="text-gray-900 font-semibold text-sm">— {t.name}</h4>
-                                </motion.div>
-                            </CarouselItem>
-                        ))}
-                    </CarouselContent>
+                    <Carousel
+                        opts={{ align: "center", loop: true }}
+                        className="w-full max-w-2xl mx-auto"
+                    >
+                        <CarouselContent>
+                            {testimonials.map((t, i) => (
+                                <CarouselItem key={i}>
+                                    <motion.div
+                                        whileHover={{
+                                            scale: 1.03,
+                                            backgroundColor: "#fef3c7", // contrast hover color
+                                        }}
+                                        transition={{ duration: 0.3 }}
+                                        className="bg-white rounded-xl shadow-md p-6 text-left max-w-xl mx-auto transition-all"
+                                    >
+                                        <Quote className="text-yellow-500 w-8 h-8 mb-4" />
+                                        <p className="text-gray-700 text-base italic mb-4">"{t.content}"</p>
+                                        <h4 className="text-gray-900 font-semibold text-sm">— {t.name}</h4>
+                                    </motion.div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
 
-                    <div className="mt-6 flex justify-center gap-4">
-                        <CarouselPrevious />
-                        <CarouselNext />
-                    </div>
-                </Carousel>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={inView ? { opacity: 1 } : {}}
+                            transition={{ duration: 0.8, delay: 0.8 }}
+                            className="mt-6 flex justify-center gap-4"
+                        >
+                            <CarouselPrevious />
+                            <CarouselNext />
+                        </motion.div>
+                    </Carousel>
+                </motion.div>
+
             </div>
         </section>
     )

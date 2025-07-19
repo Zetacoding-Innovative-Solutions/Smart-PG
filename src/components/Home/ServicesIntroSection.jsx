@@ -121,7 +121,7 @@ export default function ServicesIntroSection() {
                     transition={{ duration: 0.6, delay: 1.2 }}
                 >
                     <Link
-                        href="/service"
+                        href="/services"
                         className="mt-10 inline-block bg-white hover:bg-gray-100 text-yellow-600 font-semibold px-6 py-3 rounded-full transition"
                     >
                         See All Services

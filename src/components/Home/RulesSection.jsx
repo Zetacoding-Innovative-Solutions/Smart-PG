@@ -70,7 +70,7 @@ export default function RulesSection() {
 
                 {/* CTA */}
                 <Link
-                    href="/rules"
+                    href="/services#rules"
                     className="mt-12 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-full transition"
                 >
                     View All Rules
