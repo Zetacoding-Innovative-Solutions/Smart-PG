@@ -24,11 +24,11 @@ export default function IntroSection() {
                     initial={{ x: -150, opacity: 0 }}
                     animate={inView ? { x: 0, opacity: 1 } : {}}
                     transition={{ duration: 0.8 }}
-                    className="md:w-1/2 w-full"
+                    className="md:w-1/2 w-full group"
                 >
-                    <div className="relative w-full h-96 md:h-[500px] rounded-xl overflow-hidden shadow-lg z-6">
+                    <div className="relative w-full h-96 md:h-[500px] rounded-xl overflow-hidden shadow-lg z-6 transform transition-transform duration-500 group-hover:scale-105">
                         <Image
-                            src="/PG/images (8).jpg"
+                            src="/PG/images (1).jpg"
                             alt="PG Intro"
                             fill
                             className="object-cover"
@@ -47,7 +47,7 @@ export default function IntroSection() {
                         <p className="uppercase tracking-[10px] font-semibold text-sm text-yellow-600 mb-2 text-center">
                             About Us
                         </p>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+                        <h2 className="text-2xl md:text-3xl font-semibold text-yellow-700 mb-4 text-center">
                             More Than Just a Place to Stay
                         </h2>
                         <p className="text-gray-700 mb-4 text-justify">
@@ -78,7 +78,6 @@ export default function IntroSection() {
         </section>
     )
 }
-
 
 function StatsRow() {
     const residents = useCountUp(50)

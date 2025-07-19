@@ -1,4 +1,3 @@
-// /components/IntroSection.jsx
 "use client"
 
 import Image from "next/image"
@@ -8,103 +7,111 @@ import { motion } from "framer-motion"
 import useCountUp from "@/hooks/useCountUp"
 
 export default function IntroSection() {
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        threshold: 0.3,
-    })
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  })
 
-    return (
-        <section
-            ref={ref}
-            className="w-full py-20 bg-white"
+  return (
+    <section ref={ref} className="w-full py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        {/* Left: Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="md:w-1/2 w-full"
         >
-            <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-10">
-                {/* Text Section */}
-                <div className="md:w-1/2 w-full">
-                    <motion.div
-                        initial={{ x: -150, opacity: 0 }}
-                        animate={inView ? { x: 0, opacity: 1 } : {}}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <p className="uppercase tracking-[10px] font-semibold text-sm text-yellow-600 mb-2 md:text-left text-center">
-                            About Smart PG
-                        </p>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:text-left text-center">
-                            Welcome to Your Second Home
-                        </h2>
-                        <p className="text-gray-600 mb-6 text-justify">
-                            Smart PG's offers safe, clean, and comfortable living spaces for students and working professionals. With top-notch amenities and friendly staff, it’s more than just accommodation — it’s a community.
-                        </p>
+          <p className="uppercase tracking-[6px] font-semibold text-sm text-yellow-600 mb-3 text-center md:text-left">
+            About Smart PG
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center md:text-left">
+            A New Standard in Premium PG Living
+          </h2>
+          <p className="text-gray-600 mb-6 text-justify">
+            At Smart PG, we redefine urban accommodation with professionally managed spaces tailored for both students and working professionals. Our properties offer a seamless blend of comfort, security, and modern convenience—ensuring you feel right at home from day one. With thoughtfully designed interiors, 24/7 utilities, and a supportive community atmosphere, Smart PG is more than a place to stay—it’s where success begins.
+          </p>
 
-                        {/* Stats - Single Row with Vertical Divider */}
-                        <StatsRow />
-                    </motion.div>
+          <StatsRow />
 
-                    {/* Button to about page*/}
-                    <motion.div
-                        initial={{ y: 150, opacity: 0 }}
-                        animate={inView ? { y: 0, opacity: 1 } : {}}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <div className="flex justify-center">
-                            <Link
-                                href="/about"
-                                className="mt-6 inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition"
-                            >
-                                Know More
-                            </Link>
-                        </div>
-                    </motion.div>
-                </div>
+          <div className="flex justify-center md:justify-start">
+            <Link
+              href="/about"
+              className="mt-6 inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full transition hover:scale-105"
+            >
+              Know More
+            </Link>
+          </div>
+        </motion.div>
 
-                {/* Image Section */}
-                <motion.div
-                    initial={{ x: 150, opacity: 0 }}
-                    animate={inView ? { x: 0, opacity: 1 } : {}}
-                    transition={{ duration: 0.8 }}
-                    className="md:w-1/2 w-full"
-                >
-                    <div className="relative w-full h-96 md:h-[500px] rounded-xl overflow-hidden shadow-lg z-6">
-                        <Image
-                            src="/PG/images (2).jpg"
-                            alt="PG Intro"
-                            fill
-                            className="object-cover"
-                        />
-                        <div className="absolute top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.3)] z-7"></div>
-                    </div>
-                </motion.div>
-            </div>
-        </section>
-    )
+        {/* Right: Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="md:w-1/2 w-full"
+        >
+          <div className="relative w-full h-80 md:h-[480px] rounded-xl overflow-hidden shadow-xl group">
+            <Image
+              src="/PG/images (2).jpg"
+              alt="PG Intro"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/30"></div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+// One-by-one fade-in animation
+const statVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.3,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
 }
 
 
 function StatsRow() {
-    const residents = useCountUp(50)
-    const years = useCountUp(5)
-    const rooms = useCountUp(20)
-    const power = useCountUp(24)
-    const week = useCountUp(7)
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  })
 
-    return (
-        <div className="mt-10 flex items-center divide-x divide-gray-300 text-center">
-            <div className="px-4">
-                <h3 className="text-3xl font-bold text-yellow-600">{residents}+</h3>
-                <p className="text-gray-600 text-sm">Happy Residents</p>
-            </div>
-            <div className="px-4">
-                <h3 className="text-3xl font-bold text-yellow-600">{years}+</h3>
-                <p className="text-gray-600 text-sm">Years of Service</p>
-            </div>
-            <div className="px-4">
-                <h3 className="text-3xl font-bold text-yellow-600">{rooms}</h3>
-                <p className="text-gray-600 text-sm">Spacious Rooms</p>
-            </div>
-            <div className="px-4">
-                <h3 className="text-3xl font-bold text-yellow-600">{power}/{week}</h3>
-                <p className="text-gray-600 text-sm">Power & Water</p>
-            </div>
-        </div>
-    )
+  const stats = [
+    { label: "Satisfied Residents", value: useCountUp(500) + "+" },
+    { label: "Years of Excellence", value: useCountUp(7) + "+" },
+    { label: "Premium Rooms", value: useCountUp(150) + "+" },
+    { label: "Uninterrupted Utilities", value: "24/7" },
+  ]
+
+  return (
+    <div
+      ref={ref}
+      className="mt-10 flex flex-wrap justify-center md:justify-start gap-x-12 gap-y-6"
+    >
+      {stats.map((stat, i) => (
+        <motion.div
+          key={i}
+          variants={statVariant}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          custom={i}
+          className="flex flex-col items-center min-w-[120px] text-center"
+        >
+          <h3 className="text-3xl font-bold text-yellow-600">{stat.value}</h3>
+          <p className="text-gray-600 text-sm mt-1">{stat.label}</p>
+        </motion.div>
+      ))}
+    </div>
+  )
 }

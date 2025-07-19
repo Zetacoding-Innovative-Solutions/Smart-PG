@@ -2,70 +2,73 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Lightbulb, Users, Star, Clock } from "lucide-react"
 
 const stats = [
-    { label: "Happy Residents", value: "50+" },
-    { label: "Spacious Rooms", value: "20+" },
-    { label: "Years of Service", value: "5+" },
-    { label: "24/7 Facilities", value: "100%" },
+    { label: "Happy Residents", value: "500+", icon: Users },
+    { label: "Spacious Rooms", value: "210+", icon: Lightbulb },
+    { label: "Years of Service", value: "5+", icon: Clock },
+    { label: "24/7 Facilities", value: "100%", icon: Star },
 ]
 
 export default function AboutHeroSection() {
     return (
-        <section className="w-full bg-gradient-to-br from-yellow-100 via-white to-yellow-50 relative pt-48 pb-24 px-6 overflow-hidden">
-            <div className="max-w-4xl mx-auto text-center">
+        <section className="w-full bg-yellow-50 relative pt-48 pb-28 px-6 overflow-hidden">
+            <div className="max-w-6xl mx-auto text-center">
                 <motion.p
                     initial={{ opacity: 0, y: -60 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="uppercase tracking-widest text-sm text-yellow-600 mb-2"
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="uppercase tracking-widest text-sm text-yellow-700 mb-3"
                 >
-                    About Smart PG's
+                    Know Us Better
                 </motion.p>
 
                 <motion.h1
-                    initial={{ opacity: 0, y: -50 }}
+                    initial={{ opacity: 0, y: -40 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+                    transition={{ duration: 0.8, delay: 0.1 }}
+                    className="text-2xl sm:text-4xl font-extrabold text-yellow-900 mb-6"
                 >
-                    Over 5 Years of Trusted Accommodation
+                    5+ Years of Trusted & Comfortable Living
                 </motion.h1>
 
                 <motion.p
-                    initial={{ opacity: 0, y: -30 }}
+                    initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-gray-700 max-w-2xl mx-auto text-base md:text-lg mb-8"
+                    className="text-yellow-800 max-w-3xl mx-auto text-lg md:text-xl mb-10"
                 >
-                    At Smart PG's, we are committed to providing a safe, comfortable, and community-driven living experience for students and working professionals alike.
+                    At Smart PG’s, we’re redefining what it means to feel at home — safe, social, and completely stress-free. Designed for students and working professionals, our spaces combine modern comforts with a warm community vibe.
                 </motion.p>
 
-                {/* Stats */}
-                <div className="mt-6 flex flex-wrap justify-center gap-6">
+                {/* Stats with icons */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-center mt-10">
                     {stats.map((stat, idx) => (
                         <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.6 + idx * 0.2 }}
                             key={idx}
-                            className="bg-white border border-yellow-200 rounded-lg px-6 py-4 shadow-sm text-center hover:shadow-md transition z-4"
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.5 + idx * 0.2 }}
+                            className="bg-white border border-yellow-200 rounded-2xl px-6 py-6 shadow-md hover:shadow-xl transition duration-300 ease-in-out"
                         >
-                            <h3 className="text-2xl font-bold text-yellow-600">{stat.value}</h3>
-                            <p className="text-sm text-gray-700">{stat.label}</p>
+                            <div className="flex items-center justify-center mb-4">
+                                <stat.icon className="w-8 h-8 text-yellow-500" />
+                            </div>
+                            <h3 className="text-3xl font-bold text-yellow-600">{stat.value}</h3>
+                            <p className="text-sm font-medium text-gray-700 mt-1">{stat.label}</p>
                         </motion.div>
                     ))}
                 </div>
             </div>
 
-            {/* Optional background shape */}
-            <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-0 right-0 z-3">
-                <circle cx="100" cy="100" r="90" fill="none" stroke="#FACC15" strokeWidth="2" opacity="0.1" />
-
-                <circle cx="100" cy="100" r="60" fill="none" stroke="#FACC15" strokeWidth="2" opacity="0.2" />
-
-                <circle cx="100" cy="100" r="30" fill="none" stroke="#FACC15" strokeWidth="2" opacity="0.3" />
-            </svg>
+            {/* Decorative Element */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.2 }}
+                transition={{ duration: 1, delay: 1 }}
+                className="absolute -bottom-20 -right-20 w-[300px] h-[300px] bg-yellow-400 rounded-full blur-3xl opacity-20"
+            />
         </section>
     )
 }

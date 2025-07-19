@@ -22,17 +22,24 @@ export default function Navbar() {
             {/* Top Info Bar */}
             <div className="md:w-[70%] w-[100%] mx-auto bg-transparent text-lg text-black px-4 py-4 flex justify-between items-center">
                 <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4" />
-                    <a href="tel:+919123456789">+91 98765 43210</a>
+                    <i className="fa-solid fa-phone text-yellow-500"></i>
+                 <a href="tel:+919876543210" className="text-yellow-600 hover:underline text-lg font-semibold">
+                        +91 98765 43210
+                    </a>
+
                 </div>
                 <div className="flex items-center gap-4">
                     <div className="flex items-center gap-4">
-                        <a href={'https://www.facebook.com'} target="_blank">
-                            <i className="fa-brands fa-facebook text-2xl"></i>
-                        </a>
-                        <a href={'https://www.instagram.com'} target="_blank">
-                            <i className="fa-brands fa-instagram text-2xl"></i>
-                        </a>
+           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="group">
+  <i className="fa-brands fa-facebook text-yellow-500 text-xl transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6"></i>
+</a>
+<a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="group">
+  <i className="fa-brands fa-instagram text-yellow-500 text-xl transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-6"></i>
+</a>
+<a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="group">
+  <i className="fa-brands fa-whatsapp text-yellow-500 text-xl transition-transform duration-300 group-hover:scale-125 group-hover:translate-y-1"></i>
+</a>
+
                     </div>
                 </div>
             </div>
@@ -42,7 +49,7 @@ export default function Navbar() {
             <div className="sticky top-0 z-50 w-full bg-transparent py-4">
                 <div className="md:w-[70%] w-[100%] mx-auto bg-[#fff] md:rounded-xl rounded-none shadow-md p-6 flex justify-between items-center">
                     <div className="text-xl font-bold text-yellow-600 flex items-center gap-2">
-                        <img src="/logo.jpg" alt="" className="w-[46px]" />
+                        <img src="/logo1.png" alt="" className="w-[46px]" />
                         <p> Smart PG's</p>
                     </div>
 
